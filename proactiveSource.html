@@ -1,0 +1,42 @@
+
+<html>
+<head>
+<script>
+function analyzeCreative() {
+        var adscript = unescape(escape(document.getElementById("adScriptElement").value));
+        var countValStr = document.getElementById("countValElement").value;
+        if(!adscript) {
+                alert("Please paste a valid adscript in the text box");
+                return false;
+        }
+        document.getElementById('previewText').innerHTML = escape(adscript);
+        countVal = parseInt(countValStr);
+        if(countVal != countValStr) {
+                alert("Please enter a numeric value for the Number of Creatives");
+                return false;
+        }
+        if(typeof newWindow == "undefined")
+                var newWindow = "";
+        else
+                newWindow.close();
+
+        newWindow = window.open("proactiveTarget.html","Creative_Analysis");
+}
+</script>
+</head>
+<body>
+<div style='width:750px'>
+<div style='margin-top:10px;width:200px;text-align:right;float:left'>No. of Creatives:</div>
+<div style='margin-top:10px;margin-left:20px;_margin-left:10px;width:500px;text-align:left;float:left'><input id='countValElement' style='margin:0px;width:400px'/></div>
+
+<div style='margin-top:10px;width:200px;text-align:right;float:left'>Ad Script:</div>
+<div style='margin-top:10px;margin-left:20px;_margin-left:10px;width:500px;text-align:left;float:left'>
+<textarea id='adScriptElement' style='width:400px;height:300px;margin:0px;'></textarea>
+</div>
+<input type='button' style='margin-top:10px;margin-left:220px;' value='Show Creatives' onclick='analyzeCreative();'/>
+<div id='previewText' style='display:none;'></div>
+</div>
+</body>
+
+</html>
+
