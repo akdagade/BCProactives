@@ -1,5 +1,6 @@
 tagInput = ''
 fileInput = ''
+window.totaltagcount=0;
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 window.onload = function(){
