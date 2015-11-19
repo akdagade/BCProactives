@@ -1,6 +1,7 @@
 
 <html>
 <head>
+<script src="bcSource.js"></script>
 <script>
 function analyzeCreative() {
         var adscript = unescape(escape(document.getElementById("adScriptElement").value));
@@ -38,22 +39,24 @@ function analyzeCreative() {
 <div id='tagInputDiv' style='margin-top:40;margin-left:40px;width:600px;height:530px;display:table-cell;background-color:#efefef'>
 
 <h3 style='margin-top:20px;margin-left:10px'>Step 1 : Select Input type</h3>
-
-<input type="radio" name="inputType" value="file" checked>
+<form name='inputForm'>
+<input type="radio" name="inputType" value="file" onchange="inputFunc()" checked>
 <input type="file" id="files" name="files" onchange="handleFile()"/>
 <br>
-<input type="radio" name="inputType" value="text" style='float:left;margin-top:30px;'>
+<input type="radio" name="inputType" value="text" style='float:left;margin-top:30px;' onchange="inputFunc()">
 <textarea style='margin-top:30px;margin-left:5px;width:450;height:400;max-width:450px;max-height:400' disabled>
 </textarea>
-
+</form>
 </div>
 
 <div id='startTestDiv' style='width:600px;background-color:#efefef;display:table-cell;margin-left:20px'>
 <h3 style='margin-left:10px'>Step 2 : Select Tag Recognition logic </h3>
-<input type="radio" name="logicType" value="regex" checked> Detect Tags
+<form name='tagForm'>
+<input type="radio" name="logicType" value="regex" onchange="tagFunc()" checked> Detect Tags
 <br><br>
-<input type="radio" name="logicType" value="split"> Split by :
+<input type="radio" name="logicType" onchange="tagFunc()" value="split"> Split by :
 <input type='textbox' style='width:80px;margin-left:3px' value='!@#$%'disabled>
+</form>
 <br><br><br>
 <span style='margin-left:10px'>No. of times to display ad : </span>
 
