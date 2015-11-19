@@ -2,29 +2,9 @@
 <html>
 <head>
 <script src="bcTarget.js"></script>
-<script>
-if(window.opener) {
-        var previewString = unescape(window.opener.document.getElementById('previewText').innerHTML);
-        var countValStr = window.opener.document.getElementById('countValElement').value;
-}
-else {
-        var previewString = unescape(window.parent.document.getElementById('previewText').innerHTML);
-        var countValStr = window.parent.document.getElementById('countValElement').value;
-}
-</script>
-
 </head>
-<body>
+<body bgcolor='#d6d6f5'>
 
-<frameset>
-<script>
-var finalStr = "";
-for(var i=0;i<countValStr;i++) {
-        finalStr = finalStr + "<div style='float:left;margin:10px;border:1px solid black' id='adtest'><frame style='border-width:0px;' frameborder='0'>" + previewString + "</frame></div>";
-}
-document.write(finalStr);
-</script>
-</frameset>
 
 </body>
 </html>

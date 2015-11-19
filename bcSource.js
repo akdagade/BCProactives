@@ -11,7 +11,6 @@ inRadval = inputRad.value;
 tagRad = document.forms.tagForm.logicType;
 tagRadval = tagRad.value;
 
-
 }
 
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -116,7 +115,18 @@ function analyzeCreative(){
 			document.getElementById('countMsg').style.display='None';
 		}
 
+		document.getElementById('previewText').innerHTML='';
 
+		for (var i = 0; i < tags.length; i++) {
+			//alert(tags[i]);
+			document.getElementById('previewText').innerHTML +=escape(unescape(escape(tags[i])));
+			if(i != tags.length-1)
+				document.getElementById('previewText').innerHTML += '\n!@#$%\n';
+		};
+
+		if(typeof newWindow == "undefined")
+                 newWindow = "";
+         newWindow = window.open("proactiveTarget.html","Analyze_Creative");
 }
 
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
