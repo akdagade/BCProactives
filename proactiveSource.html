@@ -46,8 +46,7 @@
                         <input type="file" id="files" name="files" onchange="handleFile()"/>
                         <br>
                         <input type="radio" name="inputType" value="text" style='float:left;margin-top:30px;' onchange="inputFunc()">
-                        <textarea style='margin-top:30px;margin-left:5px;width:450;height:400;max-width:450px;max-height:400' id='inputTextarea' disabled>
-                        </textarea>
+                        <textarea style='margin-top:30px;margin-left:5px;width:450;height:400;max-width:450px;max-height:400' onchange="handleText()" id='inputTextarea' disabled></textarea>
 
                 </form>
 
@@ -56,12 +55,15 @@
         <div id='startTestDiv' style='width:600px;background-color:#efefef;display:table-cell;margin-left:20px'>
                 <h3 style='margin-left:10px'>Step 2 : Select Tag Recognition logic </h3>
                 <form name='tagForm'>
-                        <input type="radio" name="logicType" value="regex" onchange="tagFunc()" checked> Detect Tags
+                        <input type="radio" name="logicType" value="regex" onchange="tagFunc()" checked> Auto-Detect Tags
                         <br><br>
                         <input type="radio" name="logicType" onchange="tagFunc()" value="split"> Split by :
-                        <input type='textbox' id='splitVal' style='width:80px;margin-left:3px' value='!@#$%'disabled>
+                        <input type='textbox' id='splitVal' onchange="splitValFunc(this)" style='width:80px;margin-left:3px' value='!@#$%' disabled>
                 </form>
-                <br><br><br>
+                
+                <p id='adCountText' style='margin-left:10px;margin-top:30px;color:Green;font-size:20px'>
+                </p>
+                
                 <span style='margin-left:10px'>No. of times to display ad : </span>
 
                 <input type='textbox' style='width:80px;margin-left:3px;display:inline' id='adCount' value='1'>
