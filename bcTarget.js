@@ -1,4 +1,5 @@
 
+
 if(window.opener) {
          previewString = unescape(window.opener.document.getElementById('previewText').value);
          countValStr = window.opener.document.getElementById('adCount').value;
@@ -27,7 +28,8 @@ window.onload = function(){
 	if(document.getElementById('adtest').getElementsByTagName("*")[i].src != null && document.getElementById('adtest').getElementsByTagName("*")[i].src != '')
 	alert(document.getElementById('adtest').getElementsByTagName("*")[i].src + '\n\n')
 }*/
-	
+	//alert(errorLog+'\n~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~')
+
 	for (var i = 0; i < tags.length; i++) {	
 		flag = 0;
 		tagChk = 'adTag'+i;
@@ -65,7 +67,20 @@ window.onload = function(){
  + previewString + 
 "</frame></div>";*/
 
-window.onerror = function(e, url, line){
+	errorLog=''
+	window.onerror = function (errorMsg, url, lineNumber, column, errorObj) {
+    
+    document.getElementById('link').style.display='inline';
+    document.getElementById('mail').style.display='inline';
+    document.getElementById('link').style.textDecoration='none';
+    document.getElementById('mail').style.textDecoration='none';
+    document.getElementById('mail').style.marginLeft='1000px';
 
-	alert(e + '\n\n' + url + line);
+    
+    errorLog+='\n~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\nError: ' + errorMsg + '\nScript: ' + url + '\nLine: ' + lineNumber
+    + '\nColumn: ' + column + '\nStackTrace: ' +  errorObj;
+
+    document.getElementById('link').href='data:text/csv;charset=utf-8,' + encodeURIComponent(errorLog);
+    document.getElementById('mail').href='mailto:akshay.dagade@pubmatic.com?subject=BCProactives%20ErrorLog&body=' + encodeURIComponent(errorLog);
 }
+
