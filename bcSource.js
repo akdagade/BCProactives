@@ -126,7 +126,7 @@ function analyzeCreative(){
 
 		if(typeof newWindow == "undefined")
                  newWindow = "";
-         newWindow = window.open("proactiveTarget.html","Analyze_Creative");
+        newWindow = window.open("proactiveTarget.html","Analyze_Creative");
 }
 
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
