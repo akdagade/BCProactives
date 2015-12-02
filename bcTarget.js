@@ -19,12 +19,12 @@ for(var i=0;i<tags.length;i++) {
 	for (var j = 0; j < countValStr; j++) {
 		//tmpTag+=tags[i]+'\n'
 		if(j==0)
-			tmpTag +="<div id='adTag"+ i +"sub"+ j +"' style='margin-top:20px;display:inline'>" + tags[i] + "</div><textarea id='adTagTxt"+ i +"' style='float:right;display:block;max-height:300px;max-width:500px;height:300px;width:500px'></textarea><h4 style='float:right;clear:right;margin-left:10px;margin-bottom:10px;margin-left:0px;display:table-cell'>Call Flow :</h4><div style='clear:right;margin-top:25px;height:300px;width:1300px;margin-left:0px;overflow:scroll;background-color:#efefef;border:1px solid #8585e0;border-radius:10px' id='adTagdiv"+ i + "sub" + j +"'></div>"
+			tmpTag +="<div id='adTag"+ i +"sub"+ j +"' style='margin-top:20px;display:inline;border:1px solid #000000;float:left'>" + tags[i] + "</div><textarea id='adTagTxt"+ i +"' style='float:right;display:block;max-height:300px;max-width:500px;height:300px;width:500px;border:2px solid #8585ff;'></textarea><h4 style='float:right;clear:right;margin-left:10px;margin-bottom:10px;margin-left:0px;display:table-cell'>Call Flow :</h4><div style='clear:right;margin-top:25px;height:300px;width:1300px;margin-left:0px;overflow-y: scroll; overflow-x:hidden;background-color:#efefef;border:2px solid #8585ff;border-radius:10px;word-wrap: break-word;' id='adTagdiv"+ i + "sub" + j +"'></div>"
 		else
-			tmpTag +="<div id='adTag"+ i +"sub"+ j +"' style='margin-top:20px'>" + tags[i] + "</div><h4 style='float:right;clear:right;margin-left:10px;margin-bottom:10px;margin-left:0px;display:table-cell'>Call Flow :</h4><div style='clear:right;margin-top:25px;height:300px;width:1300px;margin-left:0px;overflow:scroll;background-color:#efefef;border:1px solid #8585e0;border-radius:10px' id='adTagdiv"+ i + "sub" + j +"'></div>"
+			tmpTag +="<div id='adTag"+ i +"sub"+ j +"' style='margin-top:20px;border:1px solid #000000;float:left;'>" + tags[i] + "</div><h4 style='float:right;clear:right;margin-left:10px;margin-bottom:10px;margin-left:0px;display:table-cell;clear:both'>Call Flow :</h4><div style='margin-top:25px;height:300px;width:1300px;margin-left:0px;overflow-y: scroll; overflow-x:hidden;background-color:#efefef;border:2px solid #8585ff;border-radius:10px;clear:both;word-wrap: break-word;' id='adTagdiv"+ i + "sub" + j +"'></div>"
 		};
 //alert(tmpTag);
-	finalStr = "<div id='adTag" + i + "' style='margin-top:30px;background-color:#c0c0c0;padding:20px;border-radius:15px'><h2>AdTag Number : "+ (i+1) +"</h2>" + tmpTag + "</div>" 
+	finalStr = "<div id='adTag" + i + "' style='margin-top:30px;background-color:#c0c0c0;padding:20px;border-radius:15px;'><h2>AdTag Number : "+ (i+1) +"</h2>" + tmpTag + "</div>" 
 //alert(finalStr);
 	document.write(finalStr);
 
@@ -54,7 +54,14 @@ window.onload = function(){
 				if(document.getElementById(tagChk).getElementsByTagName("*")[j].src != null && document.getElementById(tagChk).getElementsByTagName("*")[j].src != '')
 					{
 						flag=1;			
-						calls+='<li>'+decodeURI(document.getElementById(tagChk).getElementsByTagName("*")[j].src)+'</li><br>'
+						//alert(document.getElementById(tagChk).getElementsByTagName("*")[j].src);
+						try{ 
+							calls+='<li>'+decodeURI(document.getElementById(tagChk).getElementsByTagName("*")[j].src)+'</li><br>'
+						}
+						
+						catch(err){
+							calls+='<li>'+document.getElementById(tagChk).getElementsByTagName("*")[j].src+'</li><br>'	
+						}
 				//alert(document.getElementById(tagChk).getElementsByTagName("*")[j].src);
 					}
 			};
