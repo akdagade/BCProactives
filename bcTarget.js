@@ -70,7 +70,7 @@ window.onload = function(){
     + '\nColumn: ' + column + '\nStackTrace: ' +  errorObj;
 
     document.getElementById('link').href='data:text/csv;charset=utf-8,' + encodeURIComponent(errorLog);
-    document.getElementById('mail').href='mailto:?to=&cc=akshay.dagade@pubmatic.comsubject=BCProactives%20ErrorLog&body=' + encodeURIComponent(errorLog);
+    document.getElementById('mail').href='mailto:?to=&cc=akshay.dagade@pubmatic.com&subject=BCProactives%20ErrorLog&body=' + encodeURIComponent(errorLog);
 }
 
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Functions ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
