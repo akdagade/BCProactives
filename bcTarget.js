@@ -167,7 +167,7 @@ function showInner(n1,n2){
 					
 					document.getElementById('ainner'+n1+'sub'+n2).value='Show Logs';
 					document.getElementById('adTagdiv'+n1+'sub'+n2).innerHTML='';
-					document.getElementById('adTagdiv'+n1+'sub'+n2).innerHTML='<textarea style="margin-left:10px;margin-top:10px;width:1280px;height:280px;max-width:1280px;max-height:280px" value="\n\n' + document.getElementById('adTag'+n1+'sub'+n2).innerHTML + '" ></textarea>';
+					document.getElementById('adTagdiv'+n1+'sub'+n2).innerHTML='<textarea style="margin-left:10px;margin-top:10px;width:1280px;height:280px;max-width:1280px;max-height:280px">' + document.getElementById('adTag'+n1+'sub'+n2).innerHTML + '</textarea>';
 
 				}
 			}
