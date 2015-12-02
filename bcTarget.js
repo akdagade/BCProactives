@@ -17,10 +17,14 @@ for(var i=0;i<tags.length;i++) {
 
 	tmpTag='';
 	for (var j = 0; j < countValStr; j++) {
-		tmpTag+=tags[i]+'\n'
-	};
+		//tmpTag+=tags[i]+'\n'
+		if(j==0)
+			tmpTag +="<div id='adTag"+ i +"sub"+ j +"' style='margin-top:20px;display:inline'>" + tags[i] + "</div><textarea id='adTagTxt"+ i +"' style='float:right;display:block;max-height:300px;max-width:500px;height:300px;width:500px'></textarea><h4 style='float:right;clear:right;margin-left:10px;margin-bottom:10px;margin-left:0px;display:table-cell'>Call Flow :</h4><div style='clear:right;margin-top:25px;height:300px;width:1300px;margin-left:0px;overflow:scroll;background-color:#efefef;border:1px solid #8585e0;border-radius:10px' id='adTagdiv"+ i + "sub" + j +"'></div>"
+		else
+			tmpTag +="<div id='adTag"+ i +"sub"+ j +"' style='margin-top:20px'>" + tags[i] + "</div><h4 style='float:right;clear:right;margin-left:10px;margin-bottom:10px;margin-left:0px;display:table-cell'>Call Flow :</h4><div style='clear:right;margin-top:25px;height:300px;width:1300px;margin-left:0px;overflow:scroll;background-color:#efefef;border:1px solid #8585e0;border-radius:10px' id='adTagdiv"+ i + "sub" + j +"'></div>"
+		};
 //alert(tmpTag);
-	finalStr = "<div id='adTag" + i + "' style='margin-top:30px;background-color:#c0c0c0;padding:20px;border-radius:15px'><h2>AdTag Number : "+ (i+1) +"</h2>" + tmpTag + "<textarea id='adTagTxt"+ i +"' style='float:right;display:block;max-height:300px;max-width:500px;height:300px;width:500px'></textarea><h4 style='float:right;clear:right;margin-left:10px;margin-bottom:10px;margin-left:0px;display:table-cell'>Call Flow :</h4><div style='clear:right;margin-top:25px;height:200px;width:1300px;margin-left:0px;overflow:scroll;background-color:#efefef;border:1px solid #8585e0;border-radius:10px' id='adTagdiv"+ i +"'></div></div>" 
+	finalStr = "<div id='adTag" + i + "' style='margin-top:30px;background-color:#c0c0c0;padding:20px;border-radius:15px'><h2>AdTag Number : "+ (i+1) +"</h2>" + tmpTag + "</div>" 
 //alert(finalStr);
 	document.write(finalStr);
 
@@ -37,8 +41,11 @@ window.onload = function(){
 	//alert(errorLog+'\n~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~')
 
 	for (var i = 0; i < tags.length; i++) {	
+		
+		for (var k = 0; k < countValStr; k++) {
+			
 		flag = 0;
-		tagChk = 'adTag'+i;
+		tagChk = 'adTag'+i+'sub'+k;
 		
 		if(document.getElementById(tagChk).getElementsByTagName("*").length > 0){
 			calls='<ul style="margin-top:5px">';
@@ -59,8 +66,9 @@ window.onload = function(){
 		if(flag==0)
 			calls='<ul style="margin-top:5px"><li>No Calls/Invalid Tag</li></ul>';
 		//window.prompt("Copy to clipboard: Ctrl+C, Enter", calls);
-		if(document.getElementById('adTagdiv'+i) != null)
-				document.getElementById('adTagdiv'+i).innerHTML=calls;
+		if(document.getElementById('adTagdiv'+i+'sub'+k) != null)
+				document.getElementById('adTagdiv'+i+'sub'+k).innerHTML=calls;
+		}
 
 		if(document.getElementById('adTagTxt'+i) != null)
 				document.getElementById('adTagTxt'+i).value = tags[i];
