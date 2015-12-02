@@ -9,6 +9,7 @@ else {
          countValStr = window.parent.document.getElementById('adCount').value;
 }
 
+
 tags= previewString.split('!@#$%');
 //alert(tags.length);
 //alert(countValStr);
