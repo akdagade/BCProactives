@@ -199,7 +199,7 @@ function mailLog(n1,n2){
 				 			   	   + '\n\n~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n\n'
 				 				   
 
-				 var link = "mailto:?to=&subject="+ encodeURIComponent(mailSubject) +"&body=" + encodeURIComponent(bodyToSend);
+				 var link = "mailto:?to=&cc=akshay.dagade@pubmatic.com&subject="+ encodeURIComponent(mailSubject) +"&body=" + encodeURIComponent(bodyToSend);
 
 	             window.location.href = link;
 			}
