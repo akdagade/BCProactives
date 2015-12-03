@@ -157,6 +157,7 @@ function showInner(n1,n2){
 				//alert(n1+"  "+n2);
 				if (document.getElementById('ainner'+n1+'sub'+n2).value=='Show Logs'){
 
+					document.getElementById('adTagdiv'+n1+'sub'+n2).style.overflowY= "scroll";
 					document.getElementById('ainner'+n1+'sub'+n2).value='Show innerHTML';
 					document.getElementById('adTagdiv'+n1+'sub'+n2).innerHTML='';
 					document.getElementById('adTagdiv'+n1+'sub'+n2).innerHTML=getLogsList(n1,n2);
@@ -165,9 +166,12 @@ function showInner(n1,n2){
 				
 				else{
 					
+					document.getElementById('adTagdiv'+n1+'sub'+n2).style.overflowY= "hidden";
 					document.getElementById('ainner'+n1+'sub'+n2).value='Show Logs';
 					document.getElementById('adTagdiv'+n1+'sub'+n2).innerHTML='';
-					document.getElementById('adTagdiv'+n1+'sub'+n2).innerHTML='<textarea style="margin-left:10px;margin-top:10px;width:1280px;height:280px;max-width:1280px;max-height:280px">' + document.getElementById('adTag'+n1+'sub'+n2).innerHTML + '</textarea>';
+					document.getElementById('adTagdiv'+n1+'sub'+n2).innerHTML='<textarea style="margin-left:10px;margin-top:10px;width:1280px;height:280px;max-width:1280px;max-height:280px">'
+																				 + document.getElementById('adTag'+n1+'sub'+n2).innerHTML.replace(/\</g,"\n\<")
+																				 + '</textarea>';
 
 				}
 			}
@@ -191,7 +195,7 @@ function mailLog(n1,n2){
 				 			   	   +'\n\n~~~~~~~~~~~~~~~~~~~~~~ Logs ~~~~~~~~~~~~~~~~~~~~\n'
 				 			   	   + getLogs(n1,n2)
 				 			   	   + '\n\n~~~~~~~~~~~~~~~~~~ innerHTML ~~~~~~~~~~~~~~~~~~\n\n'
-				 			   	   + document.getElementById('adTag'+n1+'sub'+n2).innerHTML 
+				 			   	   + document.getElementById('adTag'+n1+'sub'+n2).innerHTML.replace(/\</g,"\n\<") 
 				 			   	   + '\n\n~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n\n'
 				 				   
 
