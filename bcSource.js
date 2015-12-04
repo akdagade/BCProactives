@@ -1,9 +1,13 @@
 tagInput = ''
 fileInput = ''
 window.totaltagcount=0;
+
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 window.onload = function(){
+
+document.getElementsByTagName('body')[0].style.width = window.innerWidth;
+document.getElementsByTagName('body')[0].style.height = window.innerHeight;
 
 inputRad = document.forms.inputForm.inputType;
 inRadval = inputRad.value;
